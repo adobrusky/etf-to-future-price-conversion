@@ -33,7 +33,7 @@ def round_to_nearest_tick(price, tick_size=0.25):
     return round(price / tick_size) * tick_size
 
 def main():
-    conversion_choice = input("Do you want to convert SPY to MES or QQQ to MNQ? Enter 'SPY' or 'QQQ': ").strip().upper()
+    conversion_choice = input("Do you want to convert SPY to MES, QQQ to MNQ, IWM to RTY, or DIA to MYM? Enter 'SPY', 'QQQ', 'IWM', or 'DIA': ").strip().upper()
     
     if conversion_choice == 'SPY':
         input_price = float(input("Enter the SPY price to convert: "))
@@ -41,8 +41,14 @@ def main():
     elif conversion_choice == 'QQQ':
         input_price = float(input("Enter the QQQ price to convert: "))
         ticker1, ticker2 = "QQQ", "MNQ=F"
+    elif conversion_choice == 'IWM':
+        input_price = float(input("Enter the IWM price to convert: "))
+        ticker1, ticker2 = "IWM", "RTY=F"
+    elif conversion_choice == 'DIA':
+        input_price = float(input("Enter the DIA price to convert: "))
+        ticker1, ticker2 = "DIA", "MYM=F"
     else:
-        print("Invalid choice. Please enter 'SPY' or 'QQQ'.")
+        print("Invalid choice. Please enter 'SPY', 'QQQ', 'IWM', or 'DIA'.")
         return
 
     # Retrieve intraday prices
